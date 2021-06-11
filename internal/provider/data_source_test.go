@@ -1,12 +1,15 @@
 package provider
 
 import (
+	"fmt"
+	"os"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 )
 
 func TestAccDataSource_basic(t *testing.T) {
+	fmt.Println("KEY:", os.Getenv("AWSACCESSKEY"))
 	dsn := "data.null_data_source.test"
 	resource.UnitTest(t, resource.TestCase{
 		Providers: testAccProviders,
